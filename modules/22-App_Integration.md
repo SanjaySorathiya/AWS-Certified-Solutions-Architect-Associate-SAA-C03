@@ -1,0 +1,15 @@
+### **Application Integration and Orchestration**
+
+| Service | Purpose | Key Facts |
+| :--- | :--- | :--- |
+| Step Functions | • Serverless visual workflow orchestration<br>• Coordinates distributed apps via state machines | • Workflows defined in Amazon States Language (ASL)<br>• **Standard**: up to 1 year; exactly-once execution; priced per transition; best for auditing/ETL<br>• **Express**: up to 5 min; at-least-once execution; priced per duration/memory; >100k events/s; best for IoT/streaming<br>• Native error handling, retries, catches, parallel/choice states |
+| AppFlow | • No-code SaaS data integration service | • Connects SaaS (Salesforce, Slack, ServiceNow) to AWS (S3, Redshift)<br>• Triggers: on-demand, scheduled, event-driven<br>• Security: KMS encryption; AWS PrivateLink support |
+| API Gateway | • Managed API endpoint hosting | • API Types: **REST** (caching, API keys, usage plans), **HTTP** (low-cost, OIDC/JWT auth), **WebSocket** (stateful, bidirectional)<br>• Features: Throttling (token bucket), custom caching, canary releases<br>• Authentication: Cognito, Lambda authorizers, IAM, resource policies |
+| AWS AppSync | • Managed serverless GraphQL service | • Real-time data sync with WebSocket subscriptions<br>• Offline data synchronization with automatic conflict resolution<br>• Native resolvers for DynamoDB, Lambda, Aurora, OpenSearch, HTTP APIs |
+| SWF (Simple Workflow Service) | • Legacy workflow orchestration & task coordinator | • Maximum execution duration up to 1 year<br>• Programmatic workflows with deciders & workers polling for tasks<br>• Supports human approval & external long-running tasks<br>• **Note**: Prefer Step Functions for new serverless workloads |
+| Amazon SQS | • Fully managed distributed message queuing service | • Decouples and scales microservices, distributed applications<br>• **Standard**: unlimited throughput; at-least-once delivery; best-effort ordering<br>• **FIFO**: 3,000 TPS (with batching); exactly-once processing; strict ordering<br>• Features: Dead-Letter Queues (DLQ), delay queues, visibility timeout (max 12h) |
+| Amazon SNS | • Managed pub/sub messaging and notification service | • Direct message fan-out to multiple subscribers<br>• Subscribers: SQS, Lambda, Kinesis Firehose, HTTP/S, Email, SMS<br>• Features: Client-side message filtering (filtering policies), retries, message archiving<br>• Supports **Standard** (at-least-once, best-effort) and **FIFO** topics (strict ordering) |
+| Amazon EventBridge | • Serverless event bus service | • Routes events from AWS services, SaaS apps, and custom applications to targets<br>• Features: Schema Registry (discovers event structures); API Destinations (routes to external HTTP endpoints)<br>• Natively integrates with 3rd-party SaaS partners (Salesforce, Datadog, Zendesk) |
+| Amazon MQ | • Managed message broker service | • Migrates legacy messaging systems without rewriting application code<br>• Engines: Apache ActiveMQ and RabbitMQ<br>• Protocols: AMQP, JMS, MQTT, OpenWire, STOMP |
+
+--------------------------------------------------------------------------------
